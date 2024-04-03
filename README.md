@@ -1,3 +1,3 @@
 # Type Fast
 
-click [here]() to view my application
+click [here](https://lubunga-sadi.github.io/type-fast/) to view my application

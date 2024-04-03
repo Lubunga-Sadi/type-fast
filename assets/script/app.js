@@ -14,7 +14,7 @@ const start = document.querySelector('.start');
 
 const gameSound = new Audio('./assets/audio/game-music.mp3')
 gameSound.type = 'audio/mp3'
-gameSound.volume = 0.2;
+gameSound.volume = 0.5;
 
 
 const correctSound = new Audio('./assets/audio/correct.mp3')
@@ -72,42 +72,39 @@ let counter = 99;
 const duration = 99000;
 const increment = duration / counter;
 
+
 function startCountdown(timestamp) {
   let startTime = timestamp;
   let elapsedTime = 0;
+  console.log(counter)
 
   function animate(timestamp) {
     elapsedTime = timestamp - startTime;
-    console.log("elapsedTime:", counter); // ASK ANDRE 
 
     if (elapsedTime < duration) {
       const progress = elapsedTime / duration;
       const dashArray = (1 - progress) * 579.73;
       border.style.strokeDasharray = `${dashArray} 579.73`;
       counterText.textContent = Math.ceil(counter - (counter * progress));
+      if (counterText.textContent <= 20) {
+        border.classList.add("visible")
+      }
       requestAnimationFrame(animate);
     } else { // Reset counter
       border.style.strokeDasharray = '0 579.73';
       counterText.textContent = '0';
       counter = 99; 
       finished.classList.add("visible");
-      game.classList.add("visible");
-      button.disabled = false;
+      game.classList.remove("visible");
       gameSound.pause();
-      gameOverSound.play();
-      // ADD TIMESUP ALERT!!
-    }
-    // border timer turns red 
-    if (counter > 3000 && elapsedTime > 3000) {  // if the counter is at 97 add "visible"
-      border.classList.add("visible")
     }
   }
   requestAnimationFrame(animate);
-  button.disabled = true; // disable start button so no accidental reset
 }
 
 button.addEventListener('click', function() {
   start.classList.add("visible")
+  game.classList.add("visible")
   requestAnimationFrame(startCountdown);
   displayNextWord();
   input.focus();

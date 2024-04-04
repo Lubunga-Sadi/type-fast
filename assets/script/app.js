@@ -122,7 +122,8 @@ function restartGame() {
   requestAnimationFrame(startCountdown);
   border.style.strokeDasharray = '579.73';
   counterText.textContent = 99;
-  counter = 99; 
+  counter = 99;
+  border.classList.remove("visible");
   
   finished.classList.remove("visible");
   game.classList.add("visible");

@@ -18,17 +18,14 @@ body {
   background-image: var(--background-color);
   font-weight: 400;
   color: #fff;
-}
-
-header, footer {height: 60px;}
-
-main {
-  height: calc(100vh - 60px - 60px);
   display: grid;
   align-items: center;
   justify-content: center;
-  font-family: "Rajdhani", sans-serif;
 }
+
+
+main {font-family: "Rajdhani", sans-serif;}
+
 
 .flex {display: flex;}
 
@@ -44,11 +41,12 @@ main {
 
 /*---clock---*/
 
-.clock {display: grid; justify-content: center;}
+.clock {
+  position: relative;
+  display: grid; 
+  justify-content: center;}
 
 svg {width: 200px;}
-
-.clock {position: relative;}
 
 .score {
   position: absolute; 
@@ -62,15 +60,6 @@ svg {width: 200px;}
   text-align: center;
   text-shadow: var(--text-shadow);
 }
-
-.info {
-  bottom: 0px;
-  width: 100%;
-  font-size: 20px;
-  text-align: center;
-  font-weight: 500;
-}
-
 #counter {
   fill: #fff;
   font-size: 90px;
@@ -84,10 +73,9 @@ svg {width: 200px;}
   fill: none;
   overflow: hidden;
 }
-
 .back-circle {stroke: var(--background-transparency);}
 
-/*---BLINK TIMER AT 30S---*/
+/*---BLINK TIMER AT 20S---*/
 
 #border.visible {
   stroke: #ff0000;
@@ -100,8 +88,14 @@ svg {width: 200px;}
 
 /*---INPUT---*/
 
+h2 {
+  color: #fff;
+  font-size: 80px;
+  text-align: center;
+  text-shadow: var(--text-shadow);
+}
+
 input[type="text"] {
-  padding: 10px 0;
   font-size: 40px;
   color: #fff;
   width: 100%;
@@ -109,17 +103,6 @@ input[type="text"] {
   background-color: transparent;
   border: 3px solid var(--background-transparency);
   border-radius: 5px;
-}
-
-
-h2 {
-  top: 0;
-  color: #fff;
-  font-size: 80px;
-  line-height: 48px;
-  text-align: center;
-  text-shadow: var(--text-shadow);
-  margin: 20px 0;
 }
 
 /*---TIMES-UP---*/
@@ -132,19 +115,12 @@ h2 {
   padding: 20px;
 }
 
-.finished, .start {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-}
-
 .finished, .start.visible, .game  {display: none;}
 .finished.visible, .game.visible {display: inline-block;}
 
 
 /*---START---*/
+
 .start, .finished {text-align: center;}
 
 h1 {
@@ -162,13 +138,10 @@ h1 {
   font-size: 25px;
   color: #fff;
   background-color: #432D73;
+  transition: var(--transition);
 }
 
-@keyframes blink {
-  from,
-  to {border-color: transparent;  }
-  50% {border-color: #fff;}
-}
+button:hover {background-color: #6243a5;}
 
 h3 {
   color: #000;
@@ -186,12 +159,10 @@ h3 {
 /*---------------*/
 
 @media (max-width: 600px) {
-  .game, .gen-text, .box {
-    width: 300px;
-  }
+  .game, .gen-text, .box {width: 300px;}
 
   h1 {font-size: 70px;}
-
   h2 {font-size: 50px;}
+
   .start p {font-size: 20px; font-weight: 500;}
 }

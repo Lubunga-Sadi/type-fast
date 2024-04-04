@@ -3,10 +3,9 @@
 :root {
   --background-color: linear-gradient(to bottom, #98daf2, #9AAAD9, #5a74c1 );
   --background-transparency: rgba(255, 255, 255, 0.2);
-  --text-shadow: 1px 1px 2px #000;
+  --text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   --transition: all .15s ease-in-out;
 }
-
 
 .container {
   width: min(100% - 30px, 1080px);
@@ -31,6 +30,8 @@ main {
   font-family: "Rajdhani", sans-serif;
 }
 
+.flex {display: flex;}
+
 /*---------------*/
 /*     MAIN      */
 /*---------------*/
@@ -45,7 +46,21 @@ main {
 
 .clock {display: grid; justify-content: center;}
 
-svg {width: 200px;
+svg {width: 200px;}
+
+.clock {position: relative;}
+
+.score {
+  position: absolute; 
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.hits {
+  font-size: 30px; 
+  text-align: center;
+  text-shadow: var(--text-shadow);
 }
 
 .info {
@@ -61,12 +76,11 @@ svg {width: 200px;
   font-size: 90px;
   font-weight: 500;
   text-shadow: var(--text-shadow);
-  overflow: hidden;
 }
 
 #border, .back-circle {
   stroke: #432D73;
-  stroke-width: 10px;
+  stroke-width: 13px;
   fill: none;
   overflow: hidden;
 }
@@ -97,13 +111,15 @@ input[type="text"] {
   border-radius: 5px;
 }
 
+
 h2 {
+  top: 0;
   color: #fff;
   font-size: 80px;
   line-height: 48px;
   text-align: center;
   text-shadow: var(--text-shadow);
-  margin: 20px 0 40px 0;
+  margin: 20px 0;
 }
 
 /*---TIMES-UP---*/
@@ -129,7 +145,7 @@ h2 {
 
 
 /*---START---*/
-.start {text-align: center;}
+.start, .finished {text-align: center;}
 
 h1 {
   text-align: center;
@@ -137,16 +153,9 @@ h1 {
   text-shadow: var(--text-shadow);
 }
 
-span {
-  animation: blink .8s step-end infinite;
-  border-right: 7px solid #fff;
-  margin-right: 4px;
-  text-shadow: var(--text-shadow);
-}
-
 .start p {font-size: 30px; font-weight: 500;}
 
-.start button {
+.start button, .finished button {
   padding: 5px 30px;
   border-radius: 5px;
   text-align: center;
@@ -175,3 +184,14 @@ h3 {
 /*---------------*/
 /*  RESPONSIVE   */
 /*---------------*/
+
+@media (max-width: 600px) {
+  .game, .gen-text, .box {
+    width: 300px;
+  }
+
+  h1 {font-size: 70px;}
+
+  h2 {font-size: 50px;}
+  .start p {font-size: 20px; font-weight: 500;}
+}

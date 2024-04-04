@@ -19,9 +19,9 @@
 <body>
   <header></header>
   <main>
-
+    
     <section class="start">
-      <h1><span>&nbsp;</span>TYPE FAST</h1>
+      <h1>TYPE-FAST</h1>
 
       <div class="box">
         <p>The rules are simple! type as many words that you can in 99 seconds</p>
@@ -31,23 +31,24 @@
 
     <section class="game">
       <div class="play-game">
-        
+
         <div class="clock">
           <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
             
             <circle id="border" cx="100" cy="100" r="92"/>
-
             <circle class="back-circle" cx="100" cy="100" r="92"/>
             
             <text 
             id="counter" x="50%" y="50%" text-anchor="middle" alignment-baseline="middle">
-              99
             </text>
+            
           </svg>
+          <div class="flex score">
+            <p class="hits">Hits: 0</p>
+          </div>
         </div>
         
-        <h2></h2>
-      
+        <h2 class="wordOutput"></h2>
         <input type="text" class="input">
 
       </div>
@@ -56,6 +57,7 @@
     <section class="finished">
       <div class="box">
         <h3>Times Up!</h3>
+        <button class="restart">restart</button>
       </div>
     </section>
     

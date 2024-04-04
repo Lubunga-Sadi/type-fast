@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+:root {
+  --background-color: linear-gradient(to bottom, #98daf2, #9AAAD9, #5a74c1 );
+  --background-transparency: rgba(255, 255, 255, 0.2);
+  --text-shadow: 1px 1px 2px #000;
+  --transition: all .15s ease-in-out;
+}
+
+
+.container {
+  width: min(100% - 30px, 1080px);
+  margin-inline: auto;
+}
+
+* {margin: 0px;}
+
+body {
+  background-image: var(--background-color);
+  font-weight: 400;
+  color: #fff;
+}
+
+header, footer {height: 60px;}
+
+main {
+  height: calc(100vh - 60px - 60px);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.flex {display: flex;}
+
+/*---------------*/
+/*     MAIN      */
+/*---------------*/
+
+.correct-letter {
+  color: red;
+}
